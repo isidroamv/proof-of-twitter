@@ -23,13 +23,13 @@ jobs:
         working-directory: ./packages/app
         run: yarn build
       - name: Perform e2e tests with Heaful Puppeteer
-        uses: maufrontier/puppeteer-headful@v3
+        uses: mujo-code/puppeteer-headful@16.6.0
         env:
           CI: 'true'
         with:
           commands: |
             cd packages/app
-            yarn serve -s dist -p 3000 &
+            yarn start-e2e-test-server &
             sleep 5
-            yarn jest ./tests/e2e-ui*.test.*
+            yarn test:e2e-ui
       
