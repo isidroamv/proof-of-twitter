@@ -11,25 +11,11 @@ jobs:
         with:
           node-version: 16
       - name: Install Yarn dependencies
-        run: yarn install
-      # - name: Run install
-      #   uses: borales/actions-yarn@v3.0.0
-      #   with:
-      #     cmd: install # will run `yarn install` command
-      # - name: Run test
-      #   uses: Borales/actions-yarn@v3.0.0
-      #   with:
-      #     cmd: --cwd packages/app test
-      # - name: Run build
-      #   uses: Borales/actions-yarn@v3.0.0
-      #   with:
-      #     cmd: --cwd packages/app build
-      # - name: Run e2e tests
-      #   uses: Borales/actions-yarn@v3.0.0
-      #   with:
-      #     cmd: --cwd packages/app test:e2e-ui
-      
-
-      
-      
+        run: yarn --cwd install
+      - name: Run test
+        run: yarn --cwd packages/app test
+      - name: Run build
+        run: yarn --cwd packages/app build
+      - name: Run e2e tests
+        run: yarn --cwd packages/app test:e2e-ui
       
