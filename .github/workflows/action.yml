@@ -11,5 +11,6 @@ jobs:
         with:
           node-version: 16
       - name: Install Yarn dependencies
-        run: cd packages/app && yarn install
+        working-directory: ./packages/app
+        run: yarn install
       
