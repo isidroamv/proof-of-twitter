@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: 16
       - name: Install Yarn dependencies
-        run: yarn --cwd install
+        run: yarn --cwd packages/app install
       - name: Run test
         run: yarn --cwd packages/app test
       - name: Run build
