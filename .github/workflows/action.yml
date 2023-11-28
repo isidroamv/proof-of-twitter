@@ -22,14 +22,10 @@ jobs:
       - name: Run build
         working-directory: ./packages/app
         run: yarn build
-      - name: Perform e2e tests with Heaful Puppeteer
+      - name: Test Code
         uses: mujo-code/puppeteer-headful@16.6.0
         env:
-          CI: 'true'
+          CI: "true"
         with:
-          commands: |
-            cd packages/app
-            yarn start-e2e-test-server &
-            sleep 5
-            yarn test:e2e-ui
+          args: yarn teste2e
       
