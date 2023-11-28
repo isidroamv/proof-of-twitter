@@ -19,6 +19,6 @@ jobs:
       - name: Run build
         working-directory: ./packages/app
         run: yarn build
-      # - name: Run e2e tests
-      #   run: yarn test:e2e-ui
+      - name: Run e2e tests
+        run: yarn test:e2e-ui
       
