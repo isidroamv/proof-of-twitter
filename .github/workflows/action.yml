@@ -13,4 +13,12 @@ jobs:
       - name: Install Yarn dependencies
         working-directory: ./packages/app
         run: yarn install
+      - name: Run test
+        working-directory: ./packages/app
+        run: yarn test
+      - name: Run build
+        working-directory: ./packages/app
+        run: yarn build
+      # - name: Run e2e tests
+      #   run: yarn test:e2e-ui
       
