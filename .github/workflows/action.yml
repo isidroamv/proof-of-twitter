@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     environment: development
     steps:
-      - run: echo "${{env.ALCHEMY_API_KEY}}"
+      - run: echo "$env.ALCHEMY_API_KEY"
