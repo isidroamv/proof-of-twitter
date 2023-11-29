@@ -1,31 +1,20 @@
 name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: Testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  run_unit_and_e2e_tests:
+  run_twitter_circuit_tests:
     runs-on: ubuntu-latest
+    environment: development
     steps:
       - uses: actions/checkout@v3
       - name: Set Node.js 16.x
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
       - name: Install Yarn dependencies
-        working-directory: ./packages/app
-        run: yarn install
-      - name: Run test
-        working-directory: ./packages/app
-        run: yarn test
-      - name: Run build
-        working-directory: ./packages/app
-        run: yarn build
-      - name: Test Code
-        uses: mujo-code/puppeteer-headful@16.6.0
-        env:
-          CI: "true"
-        with:
-          args: yarn app:e2e
-      
+        working-directory: ./packages/circuits
+        run: yarn install --immutable
+      - name: Run Tests
+        run: forge test --root ./packages/contracts --fork-url https://eth-goerli.g.alchemy.com/v2/${{env.ALCHEMY_API_KEY}}
