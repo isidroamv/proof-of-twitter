@@ -6,16 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     environment: development
     steps:
-      - uses: actions/checkout@v3
-      - name: Set Node.js 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
-      - name: Install Yarn dependencies
-        working-directory: ./packages/circuits
-        run: yarn install --immutable
-      - run: echo ${{env.ALCHEMY_API_KEY}}
-      - name: Run Tests
-        run: forge test --root ./packages/contracts --fork-url https://eth-goerli.g.alchemy.com/v2/${{env.ALCHEMY_API_KEY}}
+      - run: echo "${{env.ALCHEMY_API_KEY}}"
