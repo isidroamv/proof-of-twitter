@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Proof of twitter username using ZK Email",
   "private": true,
+  "scripts": {
+    "app:e2e": "cd packages/app && yarn start-e2e-test-server & sleep 3 && yarn test:e2e-ui"
+  },
   "workspaces": [
     "packages/*"
   ],
