@@ -67,7 +67,7 @@ describe("App.js", () => {
   }, 60000);
 
   it("should start download and run zkproof after entering inputs and click", async () => {
-    console.log("CONTRACT_ADDRESS", process.env.CONTRACT_ADDRESS);
+    console.log("CONTRACT_ADDRESS", process.env.VITE_CONTRACT_ADDRESS);
     await page.waitForSelector("[data-testid='status-not-started']");
     console.log("starting e2e test...this will take up to 10 minutes and consume bandwidth and cpu time")
     const proveButtonSelector = "button[data-testid='prove-button']";
