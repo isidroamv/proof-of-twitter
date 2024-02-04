@@ -1,8 +1,8 @@
 name: Proof of Twitter tests
 on: [push]
 env:
-  VITE_CONTRACT_ADDRESS: ${{ vars.CONTRACT_ADDRESS }}
-  VITE_CIRCUIT_ARTIFACTS_URL: ${{ vars.CIRCUIT_ARTIFACTS_URL }}
+  VITE_CONTRACT_ADDRESS: ${{ vars.VITE_CONTRACT_ADDRESS }}
+  VITE_CIRCUIT_ARTIFACTS_URL: ${{ vars.VITE_CIRCUIT_ARTIFACTS_URL }}
 jobs:
   run_circuit_tests:
     runs-on: ubuntu-latest
